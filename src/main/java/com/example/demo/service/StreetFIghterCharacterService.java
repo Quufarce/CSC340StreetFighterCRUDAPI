@@ -25,16 +25,16 @@ public class StreetFighterCharacterService {
     public StreetFighterCharacter getById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Character not found with id " + id));
+                        "Character id not found: " + id));
     }
 
     public StreetFighterCharacter create(StreetFighterCharacter character) {
-        character.setCharacterId(null); // make sure the database generates the ID
+        character.setCharacterId(null); 
         return repository.save(character);
     }
 
     public StreetFighterCharacter update(Long id, StreetFighterCharacter updated) {
-    StreetFighterCharacter existing = getById(id); // throws 404 if missing
+    StreetFighterCharacter existing = getById(id); 
     existing.setName(updated.getName());
     existing.setDescription(updated.getDescription());
     existing.setFirstAppearance(updated.getFirstAppearance());
@@ -44,7 +44,7 @@ public class StreetFighterCharacterService {
 }
 
     public void delete(Long id) {
-        StreetFighterCharacter existing = getById(id); // throws 404 if missing
+        StreetFighterCharacter existing = getById(id);
         repository.delete(existing);
     }
 
