@@ -16,7 +16,7 @@ RUN ./mvnw dependency:go-offline -B
 
 # 4. Copy the source code and compile
 COPY src ./src
-RUN ./mvnw -q -DskipTests package
+RUN ./mvnw -DskipTests package
 
 # ==============================================================================
 # Stage 2: Create a lightweight runtime image using JRE 25
