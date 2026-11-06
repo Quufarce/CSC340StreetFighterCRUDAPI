@@ -1,6 +1,10 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -20,6 +24,7 @@ public class StreetFighterCharacter {
     private String firstAppearance;
     private String typeOfFighter;
     private String difficulty;
+    private String thumbnailUrl;
 
     public StreetFighterCharacter() {
     }
@@ -72,4 +77,11 @@ public class StreetFighterCharacter {
         this.difficulty = difficulty;
     }
 
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
 }

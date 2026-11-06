@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.StreetFighterCharacter;
@@ -30,40 +31,37 @@ public class StreetFighterCharacterController {
     }
 
     @GetMapping
-    public ResponseEntity<List<StreetFighterCharacter>> getCharacters(
-            @RequestParam(required = false) String TypeOfFighter,
+    public List<StreetFighterCharacter> getCharacters(
+            @RequestParam(required = false) String typeOfFighter,
             @RequestParam(required = false) String name) {
 
-        if (TypeOfFighter != null) {
-            return ResponseEntity.ok(service.getByTypeOfFighter(TypeOfFighter));
-        }
-        if (name != null) {
-            return ResponseEntity.ok(service.searchByName(name));
-        }
-        return ResponseEntity.ok(service.getAll());
+        return service.search(typeOfFighter, name);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<StreetFighterCharacter> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getById(id));
+    public StreetFighterCharacter getById(@PathVariable Long id) {
+        return service.getById(id);
     }
 
     @PostMapping
-    public ResponseEntity<StreetFighterCharacter> create(
-            @Valid @RequestBody StreetFighterCharacter character) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(character));
+    @ResponseStatus(HttpStatus.CREATED)
+    public StreetFighterCharacter create(@Valid @RequestBody StreetFighterCharacter character) {
+        return service.create(character);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<StreetFighterCharacter> update(
-            @PathVariable Long id,
-            @Valid @RequestBody StreetFighterCharacter character) {
-        return ResponseEntity.ok(service.update(id, character));
+    public StreetFighterCharacter update(@PathVariable Long id, @Valid @RequestBody StreetFighterCharacter character) {
+        return service.update(id, character);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    @ResponseStatus (HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
         service.delete(id);
-        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/pulse")
+    public ResponseEntity<String> checkPulse() {
+        return ResponseEntity.ok("Pulse check successful");
     }
 }
