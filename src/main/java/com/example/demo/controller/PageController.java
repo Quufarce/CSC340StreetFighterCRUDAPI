@@ -80,4 +80,25 @@ public class PageController {
             return "error";
         }
     }
+
+    @PostMapping("/characters/{id}")
+    public String updateCharacter(@PathVariable Long id, @Valid @ModelAttribute StreetFighterCharacter character, MultipartFile imageFile) {
+        StreetFighterCharacter updatedCharacter = service.update(id, character);
+        if (imageFile != null && !imageFile.isEmpty()) {
+            service.saveThumbnail(updatedCharacter, imageFile);
+        }
+        return "redirect:/characters/" + updatedCharacter.getCharacterId();
+    }
+
+    @PostMapping("/characters/{id}/delete")
+    public String deleteCharacter(@PathVariable Long id) {
+        service.delete(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+    
 }
