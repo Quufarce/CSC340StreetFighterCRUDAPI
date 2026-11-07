@@ -89,6 +89,30 @@ body {
     margin: 20px auto;
 }
 
+.details {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.hero {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+.details dt {
+    font-weight: bold;
+    color: var(--gold);
+    margin-top: 12px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
 
 /* =========================
    Grid
