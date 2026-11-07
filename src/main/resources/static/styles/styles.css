@@ -1,0 +1,228 @@
+:root {
+    --blue: #103B6B;
+    --gold: #CC8D04;
+}
+
+body {
+    background-color: var(--blue);
+    color: white;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+
+/* =========================
+   Navigation
+   ========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a, .site-header nav a{
+    text-decoration: none;
+    color: white;
+}
+
+.site-header nav a.active {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.nav-links .btn {
+    color: white;
+}
+
+.btn {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #E0A01A;
+    border-color: #E0A01A;
+}
+
+
+/* =========================
+   Introduction
+   ========================= */
+
+.intro {
+    background-color: black;
+    padding: 80px 20px;
+}
+
+.intro h1 {
+    font-size: 52px;
+    color: white;
+    font-weight: bold;
+}
+
+.intro p {
+    font-size: 18px;
+    color: gray;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+
+/* =========================
+   Grid
+   ========================= */
+
+.grid {
+    display: grid;
+    gap: 30px;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+/* =========================
+   Sections
+   ========================= */
+
+.section {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   Cards
+   ========================= */
+
+.card {
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    background-color: var(--gold);
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 25px;
+    background-color: var(--gold);
+    border: 1px solid var(--gold);
+    color: black;
+}
+
+.card h3 {
+    font-weight: bold;
+}
+
+.card h3 a, .card-body a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* =========================
+   Registration Form
+   ========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    min-height: 100px;
+}
+
+.register-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.login-text {
+    margin-top: 20px;
+}
+
+
+/* =========================
+   How It Works
+   ========================= */
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/* =========================
+   Bottom Section
+   ========================= */
+
+.bottom-section {
+    padding: 60px 20px;
+    background-color: var(--blue);
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--blue);
+}

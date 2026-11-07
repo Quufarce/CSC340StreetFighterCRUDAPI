@@ -37,11 +37,13 @@ public class StreetFighterCharacterService {
                         "Character id not found: " + id));
     }
 
-    public List<StreetFighterCharacter> search(String typeOfFighter, String name) {
+    public List<StreetFighterCharacter> search(String typeOfFighter, String name, Integer difficulty) {
         if (typeOfFighter != null && !typeOfFighter.isEmpty()) {
             return repository.findByTypeOfFighterIgnoreCase(typeOfFighter);
         } else if (name != null && !name.isEmpty()) {
             return repository.findByNameContainingIgnoreCase(name);
+        } else if (difficulty != null) {
+            return repository.findByDifficulty(difficulty);
         } else {
             return repository.findAll();
         }

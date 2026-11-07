@@ -33,9 +33,10 @@ public class StreetFighterCharacterController {
     @GetMapping
     public List<StreetFighterCharacter> getCharacters(
             @RequestParam(required = false) String typeOfFighter,
-            @RequestParam(required = false) String name) {
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Integer difficulty) {
 
-        return service.search(typeOfFighter, name);
+        return service.search(typeOfFighter, name, difficulty);
     }
 
     @GetMapping("/{id}")
