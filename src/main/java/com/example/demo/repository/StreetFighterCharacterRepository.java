@@ -10,4 +10,7 @@ public interface StreetFighterCharacterRepository extends JpaRepository<StreetFi
     List<StreetFighterCharacter> findByTypeOfFighterIgnoreCase(String TypeOfFighter);
 
     List<StreetFighterCharacter> findByNameContainingIgnoreCase(String name);
+
+    List<StreetFighterCharacter> findByDifficulty(Integer difficulty);
+    
 }

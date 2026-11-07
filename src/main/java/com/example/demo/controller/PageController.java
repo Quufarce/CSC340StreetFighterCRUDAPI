@@ -25,11 +25,13 @@ public class PageController {
 
     @GetMapping({"/", "/characters"}) 
     public String gallery(@RequestParam(required = false) String name,
-        @RequestParam(required = false) String typeOfFIghter,
+        @RequestParam(required = false) String typeOfFighter,
+        @RequestParam(required = false) Integer difficulty,
         Model model) {
-        model.addAttribute("characters", service.search(name, typeOfFIghter));
+        model.addAttribute("characters", service.search(typeOfFighter, name, difficulty));
         model.addAttribute("name", name == null ? "" : name);
-        model.addAttribute("selectedType", typeOfFIghter == null ? "" : typeOfFIghter);
+        model.addAttribute("selectedType", typeOfFighter == null ? "" : typeOfFighter);
+        model.addAttribute("selectedDifficulty", difficulty == null ? "" : difficulty);
         return "index"; 
     }
 
